@@ -23,7 +23,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
 	cors({
-		origin:"http://localhost:3000",
+		// origin:"http://localhost:3000",
+		origin:"https://demos-edtech-ysab-m9qgu4ev2-kaushik-sharmas-projects-87e680fb.vercel.app",
 		credentials:true,
 	})
 )
