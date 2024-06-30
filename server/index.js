@@ -33,7 +33,7 @@ app.use(cookieParser());
 
 app.use(
     cors({
-        origin: '*', // Allow all origins
+        origin: '*', // Allow all origin
         credentials: true,
     })
 );
