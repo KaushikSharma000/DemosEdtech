@@ -123,7 +123,7 @@ const NavBar = ({ setProgress }) => {
                 }
 
                 <div className={`flex md:hidden  relative  flex-row ${token !== null && user?.accountType !== "Instructor" ? " -left-12" : ""}`}>
-                    <GiHamburgerMenu className={`w-16 h-8 fill-richblack-25 absolute left-0 -bottom-4 cursor-pointer `} onClick={shownav} />
+                    <GiHamburgerMenu className={`w-16 h-8 fill-richblack-25 absolute left-6 -bottom-4 cursor-pointer `} onClick={shownav} />
                     <div ref={overlay} className=' fixed top-20 bottom-0 left-0 right-0
                      z-30 bg w-[100vw] hidden h-[100vh] overflow-y-hidden bg-[rgba(0,0,0,0.5)] '
                       onClick={shownav}></div>
