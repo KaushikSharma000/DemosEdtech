@@ -1,4 +1,7 @@
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+// const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+
+const BASE_URL = "https://demosedtech-2.onrender.com/api/v1";
 
 
 // AUTH ENDPOINTS
