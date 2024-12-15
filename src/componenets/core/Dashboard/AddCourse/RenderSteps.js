@@ -1,3 +1,6 @@
+
+
+
 import { FaCheck } from "react-icons/fa"
 import { useSelector } from "react-redux"
 
@@ -11,11 +14,11 @@ export default function RenderSteps() {
   const steps = [
     {
       id: 1,
-      title: "Property Information",
+      title: "Course Information",
     },
     {
       id: 2,
-      title: "Interior Information",
+      title: "Course Builder",
     },
     {
       id: 3,

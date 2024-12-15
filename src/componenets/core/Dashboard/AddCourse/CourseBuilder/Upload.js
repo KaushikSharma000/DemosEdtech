@@ -12,7 +12,7 @@ export default function Upload({
   register,
   setValue,
   errors,
-  image = false,
+  video = false,
   viewData = null,
   editData = null,
 }) {
@@ -32,9 +32,9 @@ export default function Upload({
   }
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    accept: !image
-      ? { "video/*": [".mp4"] }
-       :  { "image/*": [".jpeg", ".jpg", ".png"] },
+    accept: !video
+      ? { "image/*": [".jpeg", ".jpg", ".png"] }
+      : { "video/*": [".mp4"] },
     onDrop,
   })
 
@@ -69,15 +69,15 @@ export default function Upload({
       >
         {previewSource ? (
           <div className="flex w-full flex-col p-6">
-            {
+            {!video ? (
               <img
                 src={previewSource}
                 alt="Preview"
                 className="h-full w-full rounded-md object-cover"
               />
-            
-              
-            }
+            ) : (
+              <Player aspectRatio="16:9" playsInline src={previewSource} />
+            )}
             {!viewData && (
               <button
                 type="button"
@@ -93,18 +93,18 @@ export default function Upload({
             )}
           </div>
         ) : (
-          <label htmlFor="image" className="">
+          <label htmlFor="video" className="">
           <div
             className="flex w-full flex-col items-center p-6"
             {...getRootProps()}
           >
-            <input {...getInputProps()} ref={inputRef} id="image" />
+            <input {...getInputProps()} ref={inputRef} id="video" />
               
             <div className="grid aspect-square w-14 place-items-center rounded-full bg-pure-greys-800">
               <FiUploadCloud className="text-2xl text-yellow-50" />
             </div>
             <p className="mt-2 max-w-[200px] text-center text-sm text-richblack-200">
-              Drag and drop an {!image ? "video" : "image"}, or click to{" "}
+              Drag and drop an {!video ? "image" : "video"}, or click to{" "}
               <span className="font-semibold text-yellow-50">Browse</span> a
               file
             </p>

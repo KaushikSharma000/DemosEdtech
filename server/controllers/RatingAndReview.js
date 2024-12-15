@@ -9,26 +9,19 @@ exports.createRating = async (req, res) => {
         //get user id
         const userId = req.user.id;
         //fetchdata from req body
-        if(!userId) {
-            return res.status(403).json({
-                success:false,
-                message:'Please Login to submit a review ',
-            });
-        }    
-
         const {rating, review, courseId} = req.body;
         //check if user is enrolled or not
-        // const courseDetails = await Course.findOne(
-        //                             {_id:courseId,
-        //                             studentsEnrolled: {$elemMatch: {$eq: userId} },
-        //                         });
+        const courseDetails = await Course.findOne(
+                                    {_id:courseId,
+                                    studentsEnrolled: {$elemMatch: {$eq: userId} },
+                                });
 
-        // if(!courseDetails) {
-        //     return res.status(404).json({
-        //         success:false,
-        //         message:'Student is not enrolled in the course',
-        //     });
-        // }
+        if(!courseDetails) {
+            return res.status(404).json({
+                success:false,
+                message:'Student is not enrolled in the course',
+            });
+        }
         //check if user already reviewed the course
         const alreadyReviewed = await RatingAndReview.findOne({
                                                 user:userId,

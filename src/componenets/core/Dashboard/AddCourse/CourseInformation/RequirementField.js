@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 
@@ -50,8 +51,7 @@ export default function RequirementsField({
           id={name}
           value={requirement}
           onChange={(e) => setRequirement(e.target.value)}
-          placeholder="Enter features (e.g., 3 bedrooms, 2 bathrooms, 1 kitchen, 1 hall, AC, Non-AC, Security etc.)"
-          className="form-style w-full border rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
+          className="form-style w-full border rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5 "
         />
         <button
           type="button"
@@ -62,13 +62,13 @@ export default function RequirementsField({
         </button>
       </div>
       {requirementsList.length > 0 && (
-        <ul className="mt-2 list-inside list-disc space-y-2">
+        <ul className="mt-2 list-inside list-disc">
           {requirementsList.map((requirement, index) => (
-            <li key={index} className="text-richblack-5">
+            <li key={index} className="flex items-center text-richblack-5">
               <span>{requirement}</span>
               <button
                 type="button"
-                className="ml-2 text-xs text-pure-greys-300"
+                className="ml-2 text-xs text-pure-greys-300 "
                 onClick={() => handleRemoveRequirement(index)}
               >
                 clear

@@ -39,8 +39,9 @@ export default function SubSectionModal({
   useEffect(() => {
     if (view || edit) {
       // console.log("modalData", modalData)
-      // setValue("lectureTitle", modalData.title)
-      setValue("lectureimage", modalData.imageUrl)
+      setValue("lectureTitle", modalData.title)
+      setValue("lectureDesc", modalData.description)
+      setValue("lectureVideo", modalData.videoUrl)
     }
   }, [])
 
@@ -49,7 +50,9 @@ export default function SubSectionModal({
     const currentValues = getValues()
     // console.log("changes after editing form values:", currentValues)
     if (
-         currentValues.lectureimage !== modalData.imageUrl  
+      currentValues.lectureTitle !== modalData.title ||
+      currentValues.lectureDesc !== modalData.description ||
+      currentValues.lectureVideo !== modalData.videoUrl
     ) {
       return true
     }
@@ -64,13 +67,15 @@ export default function SubSectionModal({
     // console.log("Values After Editing form values:", currentValues)
     formData.append("sectionId", modalData.sectionId)
     formData.append("subSectionId", modalData._id)
-    // if (currentValues.lectureTitle !== modalData.title) {
-    //   formData.append("title", currentValues.lectureTitle)
-    // }
-    if (currentValues.lectureimage !== modalData.imageUrl) {
-      formData.append("image", currentValues.lectureimage)
+    if (currentValues.lectureTitle !== modalData.title) {
+      formData.append("title", currentValues.lectureTitle)
     }
-   
+    if (currentValues.lectureDesc !== modalData.description) {
+      formData.append("description", currentValues.lectureDesc)
+    }
+    if (currentValues.lectureVideo !== modalData.videoUrl) {
+      formData.append("video", currentValues.lectureVideo)
+    }
     setLoading(true)
     const result = await updateSubSection(formData, token)
     if (result) {
@@ -101,8 +106,9 @@ export default function SubSectionModal({
 
     const formData = new FormData()
     formData.append("sectionId", modalData)
-
-    formData.append("image", data.lectureimage)
+    formData.append("title", data.lectureTitle)
+    formData.append("description", data.lectureDesc)
+    formData.append("video", data.lectureVideo)
     setLoading(true)
     const result = await createSubSection(formData, token)
     if (result) {
@@ -123,7 +129,7 @@ export default function SubSectionModal({
         {/* Modal Header */}
         <div className="flex items-center justify-between rounded-t-lg bg-richblack-700 p-5">
           <p className="text-xl font-semibold text-richblack-5">
-            {view && "Viewing"} {add && "Adding"} {edit && "Editing"} Image
+            {view && "Viewing"} {add && "Adding"} {edit && "Editing"} Lecture
           </p>
           <button onClick={() => (!loading ? setModalData(null) : {})}>
             <RxCross2 className="text-2xl text-richblack-5" />
@@ -136,17 +142,17 @@ export default function SubSectionModal({
         >
           {/* Lecture Video Upload */}
           <Upload
-            name="lectureimage"
-            label="Image"
+            name="lectureVideo"
+            label="Lecture Video"
             register={register}
             setValue={setValue}
             errors={errors}
-            image={true}
-            viewData={view ? modalData.imageUrl : null}
-            editData={edit ? modalData.imageUrl : null}
+            video={true}
+            viewData={view ? modalData.videoUrl : null}
+            editData={edit ? modalData.videoUrl : null}
           />
           {/* Lecture Title */}
-          {/* <div className="flex flex-col space-y-2">
+          <div className="flex flex-col space-y-2">
             <label className="text-sm text-richblack-5" htmlFor="lectureTitle">
               Lecture Title {!view && <sup className="text-pink-200">*</sup>}
             </label>
@@ -162,9 +168,9 @@ export default function SubSectionModal({
                 Lecture title is required
               </span>
             )}
-          </div> */}
+          </div>
           {/* Lecture Description */}
-          {/* <div className="flex flex-col space-y-2">
+          <div className="flex flex-col space-y-2">
             <label className="text-sm text-richblack-5" htmlFor="lectureDesc">
               Lecture Description{" "}
               {!view && <sup className="text-pink-200">*</sup>}
@@ -181,7 +187,7 @@ export default function SubSectionModal({
                 Lecture Description is required
               </span>
             )}
-          </div> */}
+          </div>
           {!view && (
             <div className="flex justify-end">
               <IconBtn

@@ -10,7 +10,6 @@ import { getCatalogaPageData } from '../services/operations/pageAndComponentData
 import CatalogCard from '../componenets/core/Catalog/CatalogCard';
 import { useDispatch } from 'react-redux';
 import toast from "react-hot-toast"
-import CatSearchBar from '../componenets/common/CatSearchBar'
 const Catalog = () => {
 
   const Catalog = useParams();
@@ -61,22 +60,24 @@ return (
     <div className=" box-content bg-richblack-800 px-4">
       <div className="mx-auto flex min-h-[260px] max-w-maxContentTab flex-col 
       justify-center gap-4 lg:max-w-maxContent ">
-        
-        <p className="text-3xl text-yellow-25">
+        <p className="text-sm text-richblack-300">
+          {`Home / Catalog / `}
+          <span className="text-yellow-25">
+            {CatalogPageData?.data?.selectedCategory?.name}
+          </span>
+        </p>
+        <p className="text-3xl text-richblack-5">
           {CatalogPageData?.data?.selectedCategory?.name}
         </p>
         <p className="max-w-[870px] text-richblack-200">
           {CatalogPageData?.data?.selectedCategory?.description}
         </p>
-        {/* <CatSearchBar selectedCategory={CatalogPageData?.data?.selectedCategory} /> */}
-
       </div>
     </div>
 
     {/* Section 1 */}
     <div className=" mx-auto box-content w-full max-w-maxContentTab px-4 py-12 lg:max-w-maxContent">
-      {/* <div className="section_heading font-extrabold md:text-xl text-richblack-5 text-center">
-        Courses to get you started</div> */}
+      <div className="section_heading font-extrabold md:text-xl text-richblack-5 text-center">Courses to get you started</div>
       <div className="my-4 flex border-b border-b-richblack-600 text-sm">
         <p
           className={`px-4 py-2 font-extrabold ${
@@ -119,24 +120,19 @@ return (
 
     {/* Section 3 */}
     <div className=" mx-auto box-content w-full max-w-maxContentTab px-4 py-14 lg:max-w-maxContent">
-      <div className="section_heading font-extrabold md:text-xl text-richblack-5 text-center py-8">
-        Frequently Visited</div>
+      <div className="section_heading font-extrabold md:text-xl text-richblack-5 text-center py-8">Frequently Bought</div>
       <div className="py-8">
-        
-        <div className="grid grid-cols-2  gap-6 lg:grid-cols-3">
-          
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           {CatalogPageData?.data?.mostSellingCourses
             ?.slice(0, 4)
             .map((course, i) => (
-              
-              <CatalogCard course={course} key={i} Height={"h-[200px]"} />
+              <CatalogCard course={course} key={i} Height={"h-[400px]"} />
             ))}
         </div>
       </div>
     </div>
 
-
-    
+    <Footer />
   </>
 )
 }

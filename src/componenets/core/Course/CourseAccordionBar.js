@@ -35,7 +35,11 @@ export default function CourseAccordionBar({ course, isActive, handleActive }) {
             </i>
             <p>{course?.sectionName}</p>
           </div>
-          
+          <div className="space-x-4">
+            <span className="text-yellow-25">
+              {`${course.subSection.length || 0} lecture(s)`}
+            </span>
+          </div>
         </div>
       </div>
       <div
@@ -46,12 +50,10 @@ export default function CourseAccordionBar({ course, isActive, handleActive }) {
         }}
       >
         <div className="text-textHead flex flex-col gap-2 px-7 py-6 font-semibold">
-
           {course?.subSection?.map((subSec, i) => {
             return <CourseSubSectionAccordion subSec={subSec} key={i} />
           })}
         </div>
-        
       </div>
     </div>
   )

@@ -7,27 +7,29 @@ const { uploadImageToCloudinary } = require("../utils/imageUploader")
 exports.createSubSection = async (req, res) => {
   try {
     // Extract necessary information from the request body
-    const { sectionId} = req.body
-    const image = req.files.image
+    const { sectionId, title, description } = req.body
+    const video = req.files.video
 
     // Check if all necessary fields are provided
-    if (!sectionId || !image) {
+    if (!sectionId || !title || !description || !video) {
       return res
         .status(404)
         .json({ success: false, message: "All Fields are Required" })
     }
-    console.log(image)
+    console.log(video)
 
     // Upload the video file to Cloudinary
     const uploadDetails = await uploadImageToCloudinary(
-      image,
+      video,
       process.env.FOLDER_NAME
     )
     console.log(uploadDetails)
     // Create a new sub-section with the necessary information
     const SubSectionDetails = await SubSection.create({
-      imageUrl: uploadDetails.secure_url
-      
+      title: title,
+      timeDuration: `${uploadDetails.duration}`,
+      description: description,
+      videoUrl: uploadDetails.secure_url,
     })
 
     // Update the corresponding section with the newly created sub-section
@@ -52,7 +54,7 @@ exports.createSubSection = async (req, res) => {
 
 exports.updateSubSection = async (req, res) => {
   try {
-    const { sectionId, subSectionId} = req.body
+    const { sectionId, subSectionId, title, description } = req.body
     const subSection = await SubSection.findById(subSectionId)
 
     if (!subSection) {
@@ -62,15 +64,21 @@ exports.updateSubSection = async (req, res) => {
       })
     }
 
-    
+    if (title !== undefined) {
+      subSection.title = title
+    }
 
-    if (req.files && req.files.image !== undefined) {
-      const image = req.files.image
+    if (description !== undefined) {
+      subSection.description = description
+    }
+    if (req.files && req.files.video !== undefined) {
+      const video = req.files.video
       const uploadDetails = await uploadImageToCloudinary(
-        image,
+        video,
         process.env.FOLDER_NAME
       )
-      subSection.imageUrl = uploadDetails.secure_url
+      subSection.videoUrl = uploadDetails.secure_url
+      subSection.timeDuration = `${uploadDetails.duration}`
     }
 
     await subSection.save()

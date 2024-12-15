@@ -54,9 +54,6 @@ export default function CourseInformationForm() {
       setValue("courseCategory", course.category)
       setValue("courseRequirements", course.instructions)
       setValue("courseImage", course.thumbnail)
-      setValue("FirstContactNumber", course.FirstContactNumber)
-      setValue("SecondContactNumber", course.SecondContactNumber)
-      setValue("ThirdContactNumber", course.ThirdContactNumber)
     }
     getCategories()
 
@@ -70,9 +67,6 @@ export default function CourseInformationForm() {
       currentValues.courseTitle !== course.courseName ||
       currentValues.courseShortDesc !== course.courseDescription ||
       currentValues.coursePrice !== course.price ||
-      currentValues.FirstContactNumber !== course.FirstContactNumber ||
-      currentValues.SecondContactNumber !== course.SecondContactNumber ||
-      currentValues.ThirdContactNumber !== course.ThirdContactNumber ||
       currentValues.courseTags.toString() !== course.tag.toString() ||
       currentValues.courseBenefits !== course.whatYouWillLearn ||
       currentValues.courseCategory._id !== course.category._id ||
@@ -107,15 +101,6 @@ export default function CourseInformationForm() {
         }
         if (currentValues.coursePrice !== course.price) {
           formData.append("price", data.coursePrice)
-        }
-        if (currentValues.FirstContactNumber !== course.FirstContactNumber) {
-          formData.append("FirstContactNumber", data.FirstContactNumber)
-        }
-        if (currentValues.SecondContactNumber !== course.SecondContactNumber) {
-          formData.append("SecondContactNumber", data.SecondContactNumber)
-        }
-        if (currentValues.ThirdContactNumber !== course.ThirdContactNumber) {
-          formData.append("ThirdContactNumber", data.ThirdContactNumber)
         }
         if (currentValues.courseTags.toString() !== course.tag.toString()) {
           formData.append("tag", JSON.stringify(data.courseTags))
@@ -156,16 +141,12 @@ export default function CourseInformationForm() {
     formData.append("courseName", data.courseTitle)
     formData.append("courseDescription", data.courseShortDesc)
     formData.append("price", data.coursePrice)
-    formData.append("FirstContactNumber", data.FirstContactNumber)
-    formData.append("SecondContactNumber", data.SecondContactNumber)
-    formData.append("ThirdContactNumber", data.ThirdContactNumber)
     formData.append("tag", JSON.stringify(data.courseTags))
     formData.append("whatYouWillLearn", data.courseBenefits)
     formData.append("category", data.courseCategory)
     formData.append("status", COURSE_STATUS.DRAFT)
     formData.append("instructions", JSON.stringify(data.courseRequirements))
     formData.append("thumbnailImage", data.courseImage)
-    
     setLoading(true)
     const result = await addCourseDetails(formData, token)
     if (result) {
@@ -183,46 +164,46 @@ export default function CourseInformationForm() {
       {/* Course Title */}
       <div className="flex flex-col space-y-2">
         <label className="text-sm text-richblack-5" htmlFor="courseTitle">
-          Property Name <sup className="text-pink-200">*</sup>
+          Course Title <sup className="text-pink-200">*</sup>
         </label>
         <input
           id="courseTitle"
-          placeholder="Enter Property Name"
-          {...register("courseTitle", { required: false })}
+          placeholder="Enter Course Title"
+          {...register("courseTitle", { required: true })}
           className="form-style w-full border rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5 "
         />
         {errors.courseTitle && (
           <span className="ml-2 text-xs tracking-wide text-pink-200">
-            Property Name is required
+            Course title is required
           </span>
         )}
       </div>
       {/* Course Short Description */}
       <div className="flex flex-col space-y-2">
         <label className="text-sm text-richblack-5" htmlFor="courseShortDesc">
-          City Name <sup className="text-pink-200">*</sup>
+          Course Short Description <sup className="text-pink-200">*</sup>
         </label>
         <textarea
           id="courseShortDesc"
-          placeholder="Enter Correct City Name"
+          placeholder="Enter Description"
           {...register("courseShortDesc", { required: true })}
-          className="form-style w-full border rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5 "
+          className="form-style resize-x-none min-h-[130px] w-full border rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5 "
         />
         {errors.courseShortDesc && (
           <span className="ml-2 text-xs tracking-wide text-pink-200">
-            City Name is required
+            Course Description is required
           </span>
         )}
       </div>
       {/* Course Price */}
       <div className="flex flex-col space-y-2">
         <label className="text-sm text-richblack-5" htmlFor="coursePrice">
-          Rent Amount<sup className="text-pink-200">*</sup>
+          Course Price <sup className="text-pink-200">*</sup>
         </label>
         <div className="relative">
           <input
             id="coursePrice"
-            placeholder="Enter Rent Amount (Monthly or Daily)"
+            placeholder="Enter Course Price"
             {...register("coursePrice", {
               required: true,
               valueAsNumber: true,
@@ -236,14 +217,14 @@ export default function CourseInformationForm() {
         </div>
         {errors.coursePrice && (
           <span className="ml-2 text-xs tracking-wide text-pink-200">
-            Rent Amount is required
+            Course Price is required
           </span>
         )}
       </div>
       {/* Course Category */}
       <div className="flex flex-col space-y-2">
         <label className="text-sm text-richblack-5" htmlFor="courseCategory">
-          Property Category <sup className="text-pink-200">*</sup>
+          Course Category <sup className="text-pink-200">*</sup>
         </label>
         <select
           {...register("courseCategory", { required: true })}
@@ -263,89 +244,15 @@ export default function CourseInformationForm() {
         </select>
         {errors.courseCategory && (
           <span className="ml-2 text-xs tracking-wide text-pink-200">
-            Category is required
+            Course Category is required
           </span>
         )}
       </div>
-
-       {/*  First Contact Number */}
-       <div className="flex flex-col space-y-2">
-        <label className="text-sm text-richblack-5" htmlFor="FirstContactNumber">
-          Contact Number<sup className="text-pink-200">*</sup>
-        </label>
-        <div className="relative">
-          <input
-            id="FirstContactNumber"
-            placeholder="Enter Contact Number"
-            {...register("FirstContactNumber", {
-              required: true,
-              valueAsNumber: true,
-              pattern: {
-                value: /^(0|[1-9]\d*)(\.\d+)?$/,
-              },
-            })}
-            className="form-style w-full border rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5 "
-          />
-          
-        </div>
-        {errors.FirstContactNumber && (
-          <span className="ml-2 text-xs tracking-wide text-pink-200">
-            Contact Number is required
-          </span>
-        )}
-      </div>
-      
-       {/* Second Contact Number */}
-       <div className="flex flex-col space-y-2">
-        <label className="text-sm text-richblack-5" htmlFor="SecondContactNumber">
-          Alternate Contact Number
-        </label>
-        <div className="relative">
-          <input
-            id="SecondContactNumber"
-            placeholder="Optional"
-            {...register("SecondContactNumber", {
-              required: false,
-              valueAsNumber: false,
-              pattern: {
-                value: /^(0|[1-9]\d*)(\.\d+)?$/,
-              },
-            })}
-            className="form-style w-full border rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5 "
-          />
-          
-        </div>
-        
-      </div>
-
-       {/* Third Contact Number */}
-       <div className="flex flex-col space-y-2">
-        <label className="text-sm text-richblack-5" htmlFor="ThirdContactNumber">
-          Alternate Contact Number
-        </label>
-        <div className="relative">
-          <input
-            id="ThirdContactNumber"
-            placeholder="Optional"
-            {...register("ThirdContactNumber", {
-              required: false,
-              valueAsNumber: false,
-              pattern: {
-                value: /^(0|[1-9]\d*)(\.\d+)?$/,
-              },
-            })}
-            className="form-style w-full border rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5 "
-          />
-          
-        </div>
-        
-      </div>
-
       {/* Course Tags */}
       <ChipInput
-        label="Selected Category"
+        label="Tags"
         name="courseTags"
-        placeholder="Enter Selected Property Category and press Enter"
+        placeholder="Enter Tags and press Enter"
         register={register}
         errors={errors}
         setValue={setValue}
@@ -354,7 +261,7 @@ export default function CourseInformationForm() {
       {/* Course Thumbnail Image */}
       <Upload
         name="courseImage"
-        label="Property Thumbnail Image"
+        label="Course Thumbnail"
         register={register}
         setValue={setValue}
         errors={errors}
@@ -363,24 +270,24 @@ export default function CourseInformationForm() {
       {/* Benefits of the course */}
       <div className="flex flex-col space-y-2 ">
         <label className="text-sm text-richblack-5" htmlFor="courseBenefits">
-          Complete Address <sup className="text-pink-200">*</sup>
+          Benefits of the course <sup className="text-pink-200">*</sup>
         </label>
         <textarea
           id="courseBenefits"
-          placeholder="Enter Complete Address"
+          placeholder="Enter benefits of the course"
           {...register("courseBenefits", { required: true })}
-          className="form-style w-full border rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5 "
+          className="form-style resize-x-none min-h-[130px] w-full border rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5 "
         />
         {errors.courseBenefits && (
           <span className="ml-2 text-xs tracking-wide text-pink-200 ">
-            Complete Address is required
+            Benefits of the course is required
           </span>
         )}
       </div>
       {/* Requirements/Instructions */}
       <RequirementField
         name="courseRequirements"
-        label="Property Feature Details "
+        label="Requirements/Instructions"
         register={register}
         setValue={setValue}
         errors={errors}

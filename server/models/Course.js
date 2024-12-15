@@ -28,22 +28,6 @@ const coursesSchema = new mongoose.Schema({
 	price: {
 		type: Number,
 	},
-    
-    FirstContactNumber: { 
-		type: Number, 
-		required: true 
-	},
-    SecondContactNumber: { 
-		type: Number, 
-		default: null 
-	},
-    ThirdContactNumber: { 
-		type: Number, 
-		default: null 
-	},
-
-
-
 	thumbnail: {
 		type: String,
 	},

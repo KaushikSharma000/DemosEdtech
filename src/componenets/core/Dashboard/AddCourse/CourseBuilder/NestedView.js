@@ -145,7 +145,7 @@ export default function NestedView({ handleChangeEditSectionName }) {
                 className="mt-3 flex items-center gap-x-1 text-yellow-50"
               >
                 <FaPlus className="text-lg" />
-                <p>Add Image</p>
+                <p>Add Lecture</p>
               </button>
             </div>
           </details>

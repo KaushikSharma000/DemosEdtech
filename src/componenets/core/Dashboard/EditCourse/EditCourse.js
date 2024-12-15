@@ -33,7 +33,7 @@ const EditCourse = () => {
 
   return (
     <div className='mx-auto w-11/12 max-w-[1000px] py-10'>
-        <h1 className='mb-14 text-3xl font-medium text-richblack-5 text-center'>Edit Property</h1>
+        <h1 className='mb-14 text-3xl font-medium text-richblack-5'>Edit Course</h1>
         {
             loading ? <p>Loading...</p> :(
         <RenderSteps />
