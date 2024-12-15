@@ -52,7 +52,7 @@ export default function CoursesTable({ courses, setCourses }) {
         <Thead >
           <Tr className="flex gap-x-10 rounded-t-md border-b border-b-richblack-800 px-6 py-2 text-richblack-100">
             <Th className="flex-1 text-left text-sm font-medium uppercase text-richblack-100">
-              Courses
+              Properties
             </Th>
             {/* <Th className="text-left text-sm font-medium uppercase text-richblack-100">
               Duration
@@ -69,7 +69,7 @@ export default function CoursesTable({ courses, setCourses }) {
           {courses?.length === 0 ? (
             <Tr>
               <Td className="py-10 text-center text-2xl font-medium text-richblack-100">
-                No courses found
+                No property found
                 {/* TODO: Need to change this state */}
               </Td>
             </Tr>
@@ -137,9 +137,9 @@ export default function CoursesTable({ courses, setCourses }) {
                     disabled={loading}
                     onClick={() => {
                       setConfirmationModal({
-                        text1: "Do you want to delete this course?",
+                        text1: "Do you want to delete this property?",
                         text2:
-                          "All the data related to this course will be deleted",
+                          "All the data related to this property will be deleted",
                         btn1Text: !loading ? "Delete" : "Loading...  ",
                         btn2Text: "Cancel",
                         btn1Handler: !loading

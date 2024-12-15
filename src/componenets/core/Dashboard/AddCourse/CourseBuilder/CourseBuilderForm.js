@@ -102,22 +102,22 @@ export default function CourseBuilderForm() {
 
   return (
     <div className="space-y-8 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-6 mx-20">
-      <p className="text-2xl font-semibold text-richblack-5">Course Builder</p>
+      <p className="text-2xl font-semibold text-richblack-5">Intererior Details</p>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div className="flex flex-col space-y-2">
           <label className="text-sm text-richblack-5" htmlFor="sectionName">
-            Section Name <sup className="text-pink-200">*</sup>
+            Image Name <sup className="text-pink-200">*</sup>
           </label>
           <input
             id="sectionName"
             disabled={loading}
-            placeholder="Add a section to build your course"
+            placeholder="Add an Image to rent your property"
             {...register("sectionName", { required: true })}
             className="form-style w-full border rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
           />
           {errors.sectionName && (
             <span className="ml-2 text-xs tracking-wide text-pink-200">
-              Section name is required
+              Image name is required
             </span>
           )}
         </div>

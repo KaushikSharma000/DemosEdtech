@@ -5,42 +5,42 @@ import CTAButton from "../../core/HomePage/Button";
 const LearningGridArray = [
     {
       order: -1,
-      heading: "World-Class Learning for",
-      highlightText: "Anyone, Anywhere",
+      heading: "World-Class Rental for",
+      highlightText: "Everyone, Everywhere",
       description:
-        "Studynotion partners with more than 275+ leading universities and companies to bring flexible, affordable, job-relevant online learning to individuals and organizations worldwide.",
+        "Rental collaborates with trusted providers to offer flexible, affordable, and convenient spaces to individuals and businesses worldwide.",
       BtnText: "Learn More",
       BtnLink: "/",
     },
     {
       order: 1,
-      heading: "Curriculum Based on Industry Needs",
+      heading: "Tailored for Your Rental Needs",
       description:
-        "Save time and money! The Belajar curriculum is made to be easier to understand and in line with industry needs.",
+        "Save time and money! Rental offers spaces that align perfectly with your lifestyle and preferences.",
     },
     {
       order: 2,
-      heading: "Our Learning Methods",
+      heading: "Our Approach",
       description:
-        "Studynotion partners with more than 275+ leading universities and companies to bring",
+        "Rental collaborates with trusted providers to deliver flexible, affordable, and convenient rental options.",
     },
     {
       order: 3,
-      heading: "Certification",
+      heading: "Verified Listings",
       description:
-        "Studynotion partners with more than 275+ leading universities and companies to bring",
+        "Rental ensures high-quality, verified spaces, giving you peace of mind every step of the way.",
     },
     {
       order: 4,
-      heading: `Rating "Auto-grading"`,
+      heading: "Customer Reviews",
       description:
-        "Studynotion partners with more than 275+ leading universities and companies to bring",
+        "Rental features transparent ratings and reviews, helping you make the best decisions for your needs.",
     },
     {
       order: 5,
-      heading: "Ready to Work",
+      heading: "Move-In Ready",
       description:
-        "Studynotion partners with more than 275+ leading universities and companies to bring",
+        "Find fully prepared, ready-to-use spaces with Rental—perfect for immediate move-ins.",
     },
   ];
 

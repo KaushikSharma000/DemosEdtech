@@ -50,7 +50,7 @@ const EnrolledCourses = () => {
   return (
     <div className='mx-auto w-11/12 max-w-[1000px] py-10'>
 
-        <div className='text-3xl text-richblack-50'>Enrolled Courses</div>
+        <div className='text-3xl text-richblack-50'>Enrolled Properties</div>
         {
             !enrolledCourses ? (<div>
                 Loading...
@@ -59,7 +59,7 @@ const EnrolledCourses = () => {
             : (
                 <div className='my-8 text-richblack-5'>
                     <div className='flex rounded-t-lg bg-richblack-500 '>
-                        <p className='w-[45%] px-5 py-3'>Course Name</p>
+                        <p className='w-[45%] px-5 py-3'>Property Name</p>
                         <p className='w-1/4 px-2 py-3'></p>
                         <p className='flex-1 px-2 py-3'>Progress</p>
                     </div>

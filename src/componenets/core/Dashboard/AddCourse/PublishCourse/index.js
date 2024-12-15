@@ -1,6 +1,3 @@
-
-
-
 import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import { useDispatch, useSelector } from "react-redux"
@@ -82,7 +79,7 @@ export default function PublishCourse() {
               className="border-gray-300 h-4 w-4 rounded bg-richblack-500 text-richblack-400 focus:ring-2 focus:ring-richblack-5"
             />
             <span className="ml-2 text-richblack-400">
-              Make this course as public
+              Make this property as public
             </span>
           </label>
         </div>

@@ -18,10 +18,10 @@ const About = () => {
       <section className='bg-richblack-700'>
         <div className='relative mx-auto flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-center text-white'>
             <header className='mx-auto py-20 text-4xl font-semibold lg:w-[70%]'>
-                Driving Innovation in Online Education for a 
-                <HighlightText text={"Brighter Future"}/>
+            Driving Innovation in Property Rentals for a 
+                <HighlightText text={"Better Living Experience"}/>
                 <p className='mx-auto mt-3 text-center text-base font-medium text-richblack-300 lg:w-[95%]'>
-                  Studynotion is at the forefront of driving innovation in online education. We're passionate about creating a brighter future by offering cutting-edge courses, leveraging emerging technologies, and nurturing a vibrant learning community.</p>
+                RentEase is at the forefront of transforming the rental experience. We're passionate about creating a better living and working environment by offering diverse property options, leveraging modern technology, and fostering a seamless rental community</p>
             </header>
             <div className='sm:h-[70px] lg:h-[150px]'></div>
             <div className='absolute bottom-0 left-[50%] grid w-[100%] translate-x-[-50%] translate-y-[30%] grid-cols-3 gap-3 lg:gap-5'>
@@ -66,8 +66,15 @@ const About = () => {
             <div className='flex flex-col items-center lg:gap-10 lg:flex-row justify-between'>
                 {/* left box */}
                 <div className='my-24 flex lg:w-[40%] flex-col gap-10'>
-                    <h1 className='bg-gradient-to-b from-[#FF512F] to-[#F09819] bg-clip-text text-4xl font-semibold text-transparent lg:w-[70%] '>Our Vision</h1>
-                    <p className='text-base font-medium text-richblack-300 lg:w-[95%]'>With this vision in mind, we set out on a journey to create an e-learning platform that would revolutionize the way people learn. Our team of dedicated experts worked tirelessly to develop a robust and intuitive platform that combines cutting-edge technology with engaging content, fostering a dynamic and interactive learning experience.</p>
+                    <h1 className='bg-gradient-to-b from-[#FF512F] to-[#F09819] bg-clip-text text-4xl
+                     font-semibold text-transparent lg:w-[70%] '>Our Vision</h1>
+                    <p className='text-base font-medium text-richblack-300 lg:w-[95%]'>Driven by our 
+                      vision, we set out to redefine the rental experience, making it easier and more 
+                      efficient for people to find spaces that meet their needs. Our team of passionate 
+                      experts has created an intuitive platform that combines advanced technology with a 
+                      diverse selection of properties, enabling a smooth, convenient, and rewarding 
+                      rental journey.
+                    </p>
                 </div>
 
                 {/* right box */}
@@ -75,7 +82,8 @@ const About = () => {
                     <h1 className='bg-gradient-to-b from-[#1FA2FF] via-[#12D8FA] to-[#A6FFCB] text-transparent bg-clip-text text-4xl font-semibold lg:w-[70%] '>
                         Our Mission
                     </h1>
-                    <p className='text-base font-medium text-richblack-300 lg:w-[95%]'>Our mission goes beyond just delivering courses online. We wanted to create a vibrant community of learners, where individuals can connect, collaborate, and learn from one another. We believe that knowledge thrives in an environment of sharing and dialogue, and we foster this spirit of collaboration through forums, live sessions, and networking opportunities.</p>
+                    <p className='text-base font-medium text-richblack-300 lg:w-[95%]'>Our mission goes beyond simply offering properties for rent. We aim to build a thriving community of renters and property owners, where individuals can connect, collaborate, and find the perfect spaces to live or work. We believe that a positive rental experience is rooted in trust and open communication, and we foster this spirit through community forums, 
+                      live support, and networking opportunities that bring people together.</p>
                 </div>
             </div>
         </div>
@@ -97,7 +105,7 @@ const About = () => {
       </div> */}
       </section>
       
-       <Footer/>
+       
 
     </div>
   )

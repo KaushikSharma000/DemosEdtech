@@ -4,9 +4,9 @@ import Template from "../componenets/core/Auth/Template"
 function Signup() {
   return (
     <Template
-      title="Join the millions learning to code with StudyNotion for free"
-      description1="Build skills for today, tomorrow, and beyond."
-      description2="Education to future-proof your career."
+      title="Join millions finding their perfect space with Rental!"
+      description1="Find the perfect space for today, tomorrow, and beyond."
+      description2="Rentals designed to future-proof your lifestyle."
       image={signupImg}
       formType="signup"
     />
