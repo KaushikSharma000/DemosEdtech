@@ -36,7 +36,7 @@ useEffect( () => {
         subLinks.length>0 ? (
         <>
         {subLinks.filter(
-            (subLink) => subLink.courses.length  > 0
+            (subLink) => subLink.courses.length > 0
           ).map((subLink, i) => (
             <Link
               to={`/catalog/${subLink.name
